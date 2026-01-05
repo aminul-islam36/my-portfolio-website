@@ -124,8 +124,8 @@ const Projects = () => {
         variants={containerVariants}
         initial='hidden'
         whileInView='visible'
-        viewport={{ once: true, amount: 0.3 }}
-        className='relative z-10'
+        viewport={{ once: true, amount: 0.2 }}
+        className='relative z-10 max-w-7xl mx-auto'
       >
         {/* Section Header */}
         <motion.div
@@ -145,7 +145,7 @@ const Projects = () => {
         {/* Projects Grid */}
         <motion.div
           variants={containerVariants}
-          className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'
+          className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6'
         >
           {projects.map(project => (
             <motion.div
@@ -154,10 +154,10 @@ const Projects = () => {
               whileHover={{
                 boxShadow: '0 20px 40px rgba(127, 19, 236, 0.15)',
               }}
-              className='group relative flex flex-col rounded-xl bg-surface-dark border border-surface-border overflow-hidden hover:border-primary/40 transition-all duration-300 shadow-lg hover:shadow-xl'
+              className='group relative flex flex-col rounded-xl bg-surface-dark border border-surface-border overflow-hidden hover:border-primary/40 transition-all duration-300 shadow-lg hover:shadow-xl w-full min-h-[400px]'
             >
               {/* Project Image/Icon Area */}
-              <div className='relative h-48 overflow-hidden bg-[#2a2430]'>
+              <div className='relative h-40 sm:h-48 overflow-hidden bg-[#2a2430]'>
                 {project.image ? (
                   <>
                     {/* Project Image */}
@@ -202,20 +202,22 @@ const Projects = () => {
               </div>
 
               {/* Project Content */}
-              <div className='flex flex-col flex-1 p-5'>
+              <div className='flex flex-col flex-1 p-4 sm:p-5'>
                 <motion.h3
                   whileHover={{ color: '#A855F7' }}
-                  className='font-title text-xl font-bold text-white mb-3 transition-colors line-clamp-2'
+                  className='font-title text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3 transition-colors line-clamp-2'
                 >
                   {project.title}
                 </motion.h3>
 
-                <p className='font-body text-slate-400 text-sm leading-relaxed mb-4 flex-1 line-clamp-3'>
-                  {`${project.description.slice(0, 75)} ...`}
+                <p className='font-body text-slate-400 text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4 flex-1 line-clamp-3'>
+                  {project.description.length > 100
+                    ? `${project.description.slice(0, 100)}...`
+                    : project.description}
                 </p>
 
                 {/* Technologies */}
-                <div className='flex flex-wrap gap-2 mb-5'>
+                <div className='flex flex-wrap gap-1.5 sm:gap-2 mb-4 sm:mb-5'>
                   {project.technologies.map((tech, techIndex) => (
                     <motion.span
                       key={tech}
@@ -223,7 +225,7 @@ const Projects = () => {
                       whileInView={{ opacity: 1, scale: 1 }}
                       transition={{ delay: techIndex * 0.1 }}
                       whileHover={{ scale: 1.05 }}
-                      className='px-2.5 py-1 capitalize rounded-full bg-primary/10 text-primary text-xs font-medium border border-primary/20 hover:bg-primary/20 transition-colors'
+                      className='px-2 sm:px-2.5 py-0.5 sm:py-1 capitalize rounded-full bg-primary/10 text-primary text-xs font-medium border border-primary/20 hover:bg-primary/20 transition-colors'
                     >
                       {tech}
                     </motion.span>
@@ -231,25 +233,29 @@ const Projects = () => {
                 </div>
 
                 {/* Action Buttons */}
-                <div className='flex items-center gap-3 mt-auto'>
+                <div className='flex items-center gap-2 sm:gap-3 mt-auto'>
                   <motion.button
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={() => openModal(project)}
-                    className='flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-primary hover:bg-primary/90 text-white text-sm font-semibold transition-all shadow-lg shadow-primary/20 hover:shadow-primary/30'
+                    className='flex-1 flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg bg-primary hover:bg-primary/90 text-white text-xs sm:text-sm font-semibold transition-all shadow-lg shadow-primary/20 hover:shadow-primary/30'
                   >
                     <i className='fas fa-eye text-xs'></i>
-                    <span>Live Demo</span>
+                    <span className='hidden xs:inline sm:inline'>
+                      Live Demo
+                    </span>
+                    <span className='xs:hidden sm:hidden'>Demo</span>
                   </motion.button>
 
                   <motion.a
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className='flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-surface-border/50 hover:bg-surface-border text-slate-300 hover:text-white text-sm font-semibold transition-all border border-surface-border hover:border-primary/30'
+                    className='flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg bg-surface-border/50 hover:bg-surface-border text-slate-300 hover:text-white text-xs sm:text-sm font-semibold transition-all border border-surface-border hover:border-primary/30'
                     href='#'
                   >
                     <i className='fab fa-github text-xs'></i>
-                    <span>Code</span>
+                    <span className='hidden xs:inline sm:inline'>Code</span>
+                    <span className='xs:hidden sm:hidden'>Code</span>
                   </motion.a>
                 </div>
               </div>

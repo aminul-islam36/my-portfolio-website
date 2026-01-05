@@ -145,7 +145,7 @@ const Testimonials = () => {
         <motion.div variants={itemVariants} className='mt-16 text-center'>
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className='inline-flex items-center gap-8 px-8 py-6 bg-surface-dark/30 backdrop-blur-sm border border-white/10 rounded-2xl'
+            className='flex flex-wrap items-center justify-center gap-3 lg:gap-8 px-8 py-6 max-w-2xl mx-auto bg-surface-dark/30 backdrop-blur-sm border border-white/10 rounded-2xl'
           >
             <div className='text-center'>
               <motion.div
@@ -161,8 +161,6 @@ const Testimonials = () => {
               </div>
             </div>
 
-            <div className='w-px h-12 bg-white/10'></div>
-
             <div className='text-center'>
               <motion.div
                 initial={{ scale: 0 }}
@@ -176,8 +174,6 @@ const Testimonials = () => {
                 Projects Delivered
               </div>
             </div>
-
-            <div className='w-px h-12 bg-white/10'></div>
 
             <div className='text-center'>
               <motion.div

@@ -80,3 +80,10 @@ body {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+/* Mobile responsive utilities */
+@media (max-width: 480px) {
+  .line-clamp-3 {
+    -webkit-line-clamp: 2;
+  }
+}

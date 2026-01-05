@@ -22,7 +22,7 @@ function App() {
       {/* Main Content */}
       <div className='relative z-10'>
         <Navbar />
-        <main className='w-full max-w-7xl mx-auto px-6 md:px-12 pt-20 pb-20'>
+        <main className='w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 pt-20 pb-20'>
           <Hero />
           <About />
           <Skills />
