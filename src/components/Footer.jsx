@@ -48,7 +48,7 @@ const Footer = () => {
             <motion.div whileHover={{ scale: 1.05 }}>
               <Logo size='large' />
             </motion.div>
-            <p className='text-gray-600 dark:text-gray-400 leading-relaxed'>
+            <p className='font-body text-gray-600 dark:text-gray-400 leading-relaxed'>
               Full Stack Developer passionate about creating exceptional digital
               experiences. Let&apos;s build something amazing together.
             </p>
@@ -56,7 +56,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <motion.div variants={itemVariants} className='space-y-4'>
-            <h3 className='text-lg font-bold text-gray-900 dark:text-white'>
+            <h3 className='font-title text-lg font-bold text-gray-900 dark:text-white'>
               Quick Links
             </h3>
             <ul className='space-y-2'>
@@ -67,7 +67,7 @@ const Footer = () => {
                   whileHover={{ x: 5 }}
                 >
                   <a
-                    className='text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors'
+                    className='font-body text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors'
                     href={link.href}
                   >
                     {link.name}
@@ -79,14 +79,23 @@ const Footer = () => {
 
           {/* Social Links */}
           <motion.div variants={itemVariants} className='space-y-4'>
-            <h3 className='text-lg font-bold text-gray-900 dark:text-white'>
+            <h3 className='font-title text-lg font-bold text-gray-900 dark:text-white'>
               Connect With Me
             </h3>
             <div className='flex items-center gap-3'>
               {[
-                { icon: 'fab fa-github', href: '#' },
-                { icon: 'fab fa-linkedin-in', href: '#' },
-                { icon: 'fas fa-envelope', href: '#' },
+                {
+                  icon: 'fab fa-github',
+                  href: 'https://github.com/aminul-islam36',
+                },
+                {
+                  icon: 'fab fa-linkedin-in',
+                  href: 'https://www.linkedin.com/in/aminul-islam36',
+                },
+                {
+                  icon: 'fas fa-envelope',
+                  href: 'mailto:aminbro318@gmail.com',
+                },
               ].map((social, index) => (
                 <motion.a
                   key={index}
@@ -94,6 +103,14 @@ const Footer = () => {
                   whileTap={{ scale: 0.9 }}
                   className='w-11 h-11 flex items-center justify-center rounded-full bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary hover:border-primary dark:hover:border-primary transition-all'
                   href={social.href}
+                  target={
+                    social.icon === 'fas fa-envelope' ? '_self' : '_blank'
+                  }
+                  rel={
+                    social.icon === 'fas fa-envelope'
+                      ? ''
+                      : 'noopener noreferrer'
+                  }
                 >
                   <i className={social.icon}></i>
                 </motion.a>
@@ -111,7 +128,7 @@ const Footer = () => {
           <div className='flex flex-col md:flex-row justify-between items-center gap-6'>
             <motion.p
               variants={itemVariants}
-              className='text-sm text-gray-500 dark:text-gray-400'
+              className='font-body text-sm text-gray-500 dark:text-gray-400'
             >
               © 2024 AMIN. All rights reserved. Built with ❤️ using React &
               Tailwind CSS
@@ -120,13 +137,13 @@ const Footer = () => {
             <motion.div variants={itemVariants} className='flex gap-6 text-sm'>
               <motion.span
                 whileHover={{ color: '#A855F7' }}
-                className='text-gray-500 dark:text-gray-400 hover:text-primary transition-colors cursor-pointer'
+                className='font-body text-gray-500 dark:text-gray-400 hover:text-primary transition-colors cursor-pointer'
               >
                 Privacy Policy
               </motion.span>
               <motion.span
                 whileHover={{ color: '#A855F7' }}
-                className='text-gray-500 dark:text-gray-400 hover:text-primary transition-colors cursor-pointer'
+                className='font-body text-gray-500 dark:text-gray-400 hover:text-primary transition-colors cursor-pointer'
               >
                 Terms of Service
               </motion.span>

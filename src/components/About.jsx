@@ -30,7 +30,7 @@ const About = () => {
   ]
 
   return (
-    <section id='about' className='mb-24 scroll-mt-20'>
+    <section id='about' className='scroll-mt-10 py-10'>
       <motion.div
         variants={containerVariants}
         initial='hidden'
@@ -114,8 +114,7 @@ const About = () => {
               variants={itemVariants}
               className='text-2xl md:text-3xl font-display font-semibold text-gray-800 dark:text-gray-100'
             >
-              I&apos;m a Full Stack Developer based in{' '}
-              <span className='text-primary'>mymensingh ,Bangladesh</span>
+              I&apos;m a MERN Stack Developer 🧑‍💻{' '}
             </motion.h3>
 
             <motion.div
@@ -166,7 +165,9 @@ const About = () => {
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 className='inline-flex items-center justify-center px-6 py-3 text-white font-medium bg-gradient-to-r from-primary to-accent-pink rounded-full hover:shadow-lg hover:shadow-primary/40 transition-all duration-300'
-                href='#'
+                href='https://drive.google.com/file/d/1YnPLdYig2IM1hXSvDM29QqpHRBe7nQ1s/view?usp=sharing'
+                target='_blank'
+                rel='noreferrer'
               >
                 <span>Download CV</span>
                 <i className='fas fa-download ml-2 text-sm'></i>
@@ -174,17 +175,6 @@ const About = () => {
             </motion.div>
           </motion.div>
         </div>
-
-        {/* Technologies Section */}
-        <motion.div
-          variants={itemVariants}
-          className='mt-20 lg:mt-32 pt-10 border-t border-gray-200 dark:border-white/5'
-        >
-          <motion.div
-            variants={containerVariants}
-            className='flex justify-center flex-wrap gap-8 md:gap-12 opacity-70 grayscale hover:grayscale-0 transition-all duration-500'
-          ></motion.div>
-        </motion.div>
       </motion.div>
     </section>
   )

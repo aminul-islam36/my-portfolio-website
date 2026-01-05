@@ -1,7 +1,21 @@
 import { motion } from 'framer-motion'
+import { useState } from 'react'
 import { Title } from './Title'
+import ProjectModal from './ProjectModal'
 
 const Projects = () => {
+  const [selectedProject, setSelectedProject] = useState(null)
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
+  const openModal = project => {
+    setSelectedProject(project)
+    setIsModalOpen(true)
+  }
+
+  const closeModal = () => {
+    setIsModalOpen(false)
+    setSelectedProject(null)
+  }
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -29,65 +43,77 @@ const Projects = () => {
       title: 'E-Commerce Dashboard',
       image: 'https://i.ibb.co.com/C31VY735/Screenshot-20.png',
       description:
-        'A comprehensive dashboard for managing online stores. Features include real-time inventory tracking, sales analytics visualization, and order processing workflows.',
+        'A comprehensive dashboard for managing online stores with real-time inventory tracking, sales analytics visualization, and order processing workflows. Built with modern technologies to provide seamless user experience and robust performance.',
       icon: 'fas fa-shopping-cart',
       category: 'Full Stack',
       technologies: ['Next.js', 'Tailwind', 'firebase'],
       gradient: 'from-blue-500 to-cyan-500',
+      liveUrl: '#',
+      githubUrl: '#',
     },
     {
       title: 'Global LinkHub',
       image: 'https://i.ibb.co.com/8nDD7NWq/Screenshot-21.png',
       description:
-        'A comprehensive dashboard for managing online stores. Features include real-time inventory tracking, sales analytics visualization, and order processing workflows.',
-      icon: 'fas fa-shopping-cart',
+        'A powerful link management platform that allows users to create, organize, and share collections of links. Features include custom link previews, analytics tracking, and collaborative sharing capabilities.',
+      icon: 'fas fa-link',
       category: 'Full Stack',
       technologies: ['Next.js', 'mongodb', 'Tailwind', 'express'],
-      gradient: 'from-blue-500 to-cyan-500',
+      gradient: 'from-green-500 to-teal-500',
+      liveUrl: '#',
+      githubUrl: '#',
     },
     {
       title: 'Asset Verce Dashboard',
       image: 'https://i.ibb.co.com/9HtZ3dx7/Screenshot-23.png',
       description:
-        'A comprehensive dashboard for managing online stores. Features include real-time inventory tracking, sales analytics visualization, and order processing workflows.',
-      icon: 'fas fa-shopping-cart',
+        'A sophisticated asset management system designed for tracking and managing digital assets. Includes features for asset categorization, performance monitoring, and detailed reporting with interactive charts.',
+      icon: 'fas fa-chart-line',
       category: 'Full Stack',
       technologies: ['Next.js', 'mongodb', 'Tailwind', 'node.js'],
-      gradient: 'from-blue-500 to-cyan-500',
+      gradient: 'from-purple-500 to-indigo-500',
+      liveUrl: '#',
+      githubUrl: '#',
     },
     {
       title: 'TaskFlow Pro',
       image: 'https://i.ibb.co.com/q3jrf2Ft/Screenshot-22.png',
       description:
-        'A collaborative task management application enabling teams to organize projects with drag-and-drop Kanban boards, real-time updates, and team chat integration.',
+        'A collaborative task management application enabling teams to organize projects with drag-and-drop Kanban boards, real-time updates, and team chat integration. Perfect for agile development teams.',
       icon: 'fas fa-tasks',
       category: 'Productivity',
       technologies: ['React', 'Next.js', 'Node.js'],
       gradient: 'from-green-500 to-emerald-500',
+      liveUrl: '#',
+      githubUrl: '#',
     },
     {
       title: 'Synapse AI Writer',
       image: 'https://i.ibb.co.com/G4NyG2QK/Screenshot-31.png',
       description:
-        'An AI-powered content generation tool that helps marketers create blog posts, social media captions, and ad copy. Integrates with OpenAI API for text generation.',
+        'An AI-powered content generation tool that helps marketers create blog posts, social media captions, and ad copy. Integrates with OpenAI API for intelligent text generation and content optimization.',
       icon: 'fas fa-magic',
       category: 'AI / ML',
       technologies: ['React.js', 'Next.js', 'mongodb'],
       gradient: 'from-purple-500 to-pink-500',
+      liveUrl: '#',
+      githubUrl: '#',
     },
     {
       title: 'CoinWatch',
       description:
-        'A real-time cryptocurrency portfolio tracker. Users can monitor price changes, set alerts, and view historical data charts powered by D3.js.',
+        'A real-time cryptocurrency portfolio tracker that allows users to monitor price changes, set alerts, and view historical data charts. Features advanced analytics and portfolio performance tracking.',
       icon: 'fab fa-bitcoin',
       category: 'Finance',
       technologies: ['Node.js', 'Next.js', 'Firebase', 'mongodb'],
       gradient: 'from-orange-500 to-red-500',
+      liveUrl: '#',
+      githubUrl: '#',
     },
   ]
 
   return (
-    <section id='projects' className='mb-24 scroll-mt-20'>
+    <section id='projects' className='py-10 scroll-mt-10'>
       {/* Background Elements */}
       <div className='fixed inset-0 pointer-events-none z-0 overflow-hidden'>
         <div className='absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/20 rounded-full blur-[120px]'></div>
@@ -185,7 +211,7 @@ const Projects = () => {
                 </motion.h3>
 
                 <p className='font-body text-slate-400 text-sm leading-relaxed mb-4 flex-1 line-clamp-3'>
-                  {project.description}
+                  {`${project.description.slice(0, 75)} ...`}
                 </p>
 
                 {/* Technologies */}
@@ -206,15 +232,15 @@ const Projects = () => {
 
                 {/* Action Buttons */}
                 <div className='flex items-center gap-3 mt-auto'>
-                  <motion.a
+                  <motion.button
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
+                    onClick={() => openModal(project)}
                     className='flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-primary hover:bg-primary/90 text-white text-sm font-semibold transition-all shadow-lg shadow-primary/20 hover:shadow-primary/30'
-                    href='#'
                   >
                     <i className='fas fa-eye text-xs'></i>
                     <span>Live Demo</span>
-                  </motion.a>
+                  </motion.button>
 
                   <motion.a
                     whileHover={{ scale: 1.02 }}
@@ -244,6 +270,13 @@ const Projects = () => {
           </motion.a>
         </motion.div>
       </motion.div>
+
+      {/* Project Modal */}
+      <ProjectModal
+        project={selectedProject}
+        isOpen={isModalOpen}
+        onClose={closeModal}
+      />
     </section>
   )
 }

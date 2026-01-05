@@ -54,7 +54,7 @@ const Testimonials = () => {
   ]
 
   return (
-    <section id='testimonials' className='mb-24 scroll-mt-20'>
+    <section id='testimonials' className='py-10 scroll-mt-10'>
       <motion.div
         variants={containerVariants}
         initial='hidden'
@@ -80,7 +80,7 @@ const Testimonials = () => {
           variants={containerVariants}
           className='grid grid-cols-1 md:grid-cols-3 gap-8'
         >
-          {testimonials.map((testimonial, index) => (
+          {testimonials.map(testimonial => (
             <motion.div
               key={testimonial.name}
               variants={itemVariants}

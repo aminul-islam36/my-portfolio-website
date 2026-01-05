@@ -1,5 +1,9 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { toast } from 'react-toastify'
+import emailjs from '@emailjs/browser'
+import { Title } from './Title'
+import { emailjsConfig, isEmailJSConfigured } from '../config/emailjs'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -8,6 +12,7 @@ const Contact = () => {
     subject: '',
     message: '',
   })
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -38,10 +43,107 @@ const Contact = () => {
     })
   }
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault()
-    // Handle form submission here
-    console.log('Form submitted:', formData)
+    setIsSubmitting(true)
+
+    try {
+      // Check if EmailJS is configured
+      if (!isEmailJSConfigured()) {
+        console.warn(
+          'EmailJS is not configured. Please set up your EmailJS credentials.'
+        )
+
+        // Show configuration warning
+        toast.warning(
+          'EmailJS is not configured yet. Please check the console for setup instructions.',
+          {
+            position: 'top-right',
+            autoClose: 7000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+          }
+        )
+
+        // Log form data for development
+        console.log('Form data (EmailJS not configured):', formData)
+
+        // Reset form anyway for better UX
+        setFormData({
+          name: '',
+          email: '',
+          subject: '',
+          message: '',
+        })
+
+        return
+      }
+
+      // Template parameters that will be sent to your email
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject || 'New Contact Form Message',
+        message: formData.message,
+        to_email: 'aminbro318@gmail.com',
+        reply_to: formData.email,
+      }
+
+      // Send email using EmailJS
+      const response = await emailjs.send(
+        emailjsConfig.serviceId,
+        emailjsConfig.templateId,
+        templateParams,
+        emailjsConfig.publicKey
+      )
+
+      console.log('Email sent successfully:', response)
+
+      // Show success toast
+      toast.success("Message sent successfully! I'll get back to you soon.", {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      })
+
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        subject: '',
+        message: '',
+      })
+    } catch (error) {
+      console.error('EmailJS error:', error)
+
+      // Show error toast with more specific message
+      let errorMessage = 'Failed to send message. Please try again.'
+
+      if (error?.status === 400) {
+        errorMessage =
+          'EmailJS configuration error. Please check your credentials.'
+      } else if (error?.text) {
+        errorMessage = error.text
+      } else if (error?.message) {
+        errorMessage = error.message
+      }
+
+      toast.error(errorMessage, {
+        position: 'top-right',
+        autoClose: 7000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const contactInfo = [
@@ -66,7 +168,7 @@ const Contact = () => {
   ]
 
   return (
-    <section id='contact' className='mb-24 scroll-mt-20'>
+    <section id='contact' className='py-10 scroll-mt-10'>
       {/* Background Elements */}
       <div className='absolute top-0 left-1/4 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] pointer-events-none mix-blend-screen opacity-50 dark:opacity-30'></div>
       <div className='absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[100px] pointer-events-none mix-blend-screen opacity-50 dark:opacity-30'></div>
@@ -88,13 +190,8 @@ const Contact = () => {
               <div className='inline-flex items-center px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider'>
                 Contact Me
               </div>
-              <h2 className='text-4xl md:text-5xl font-extrabold tracking-tight leading-tight text-slate-900 dark:text-white'>
-                Get in{' '}
-                <span className='text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-400'>
-                  Touch
-                </span>
-              </h2>
-              <p className='text-lg text-slate-600 dark:text-slate-400 leading-relaxed'>
+              <Title>Get in Touch</Title>
+              <p className='font-body text-lg text-slate-600 dark:text-slate-400 leading-relaxed'>
                 I&apos;m currently open to new opportunities. Whether you have a
                 question about my stack, a project proposal, or just want to say
                 hi, I&apos;ll try my best to get back to you!
@@ -117,7 +214,7 @@ const Contact = () => {
                     <i className={info.icon}></i>
                   </motion.div>
                   <div>
-                    <h3 className='text-base font-bold text-slate-900 dark:text-white mb-1'>
+                    <h3 className='font-title text-base font-bold text-slate-900 dark:text-white mb-1'>
                       {info.title}
                     </h3>
                     {info.href ? (
@@ -243,16 +340,38 @@ const Contact = () => {
                   {/* Submit Button */}
                   <motion.div variants={itemVariants} className='pt-2'>
                     <motion.button
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className='relative w-full md:w-auto md:min-w-[200px] flex items-center justify-center gap-2 overflow-hidden rounded-lg bg-primary text-white font-bold h-14 px-8 shadow-lg shadow-primary/25 hover:bg-primary/90 hover:shadow-primary/40 focus:ring-4 focus:ring-primary/20 transition-all duration-200'
+                      whileHover={!isSubmitting ? { scale: 1.05 } : {}}
+                      whileTap={!isSubmitting ? { scale: 0.95 } : {}}
+                      className={`relative w-full md:w-auto md:min-w-[200px] flex items-center justify-center gap-2 overflow-hidden rounded-lg text-white font-bold h-14 px-8 shadow-lg transition-all duration-200 ${
+                        isSubmitting
+                          ? 'bg-primary/70 cursor-not-allowed'
+                          : 'bg-primary hover:bg-primary/90 hover:shadow-primary/40 focus:ring-4 focus:ring-primary/20 shadow-primary/25'
+                      }`}
                       type='submit'
+                      disabled={isSubmitting}
                     >
-                      <span>Send Message</span>
-                      <motion.i
-                        whileHover={{ x: 5 }}
-                        className='fas fa-paper-plane'
-                      ></motion.i>
+                      {isSubmitting ? (
+                        <>
+                          <motion.div
+                            animate={{ rotate: 360 }}
+                            transition={{
+                              duration: 1,
+                              repeat: Infinity,
+                              ease: 'linear',
+                            }}
+                            className='w-5 h-5 border-2 border-white border-t-transparent rounded-full'
+                          />
+                          <span>Sending...</span>
+                        </>
+                      ) : (
+                        <>
+                          <span>Send Message</span>
+                          <motion.i
+                            whileHover={{ x: 5 }}
+                            className='fas fa-paper-plane'
+                          ></motion.i>
+                        </>
+                      )}
                     </motion.button>
                   </motion.div>
                 </form>

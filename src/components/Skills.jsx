@@ -74,7 +74,7 @@ const Skills = () => {
   ]
 
   return (
-    <section id='skills' className='mb-24 scroll-mt-20'>
+    <section id='skills' className='py-10 scroll-mt-10'>
       {/* Background Elements */}
       <div className='fixed inset-0 pointer-events-none z-0 overflow-hidden'>
         <div className='absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/20 rounded-full blur-[120px]'></div>
@@ -93,18 +93,16 @@ const Skills = () => {
           variants={itemVariants}
           className='flex flex-col items-center text-center space-y-4 mb-12'
         >
-          <div className='inline-flex items-center justify-center px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-wider'>
-            Expertise{' '}
-          </div>
           <h1 className='text-4xl lg:text-5xl font-extrabold leading-tight tracking-[-0.02em]'>
-            Technical
+            Core
             <span className=' ml-1.5 inline-block text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-400'>
-              Proficiency
+              Expertise
             </span>
           </h1>
           <p className='font-body text-slate-400 max-w-2xl text-lg leading-relaxed'>
-            A comprehensive overview of the technologies, tools, and platforms I
-            leverage to build scalable, high-performance web applications.
+            Specialized in building full-stack applications using the latest
+            industry standards. From responsive frontend design to secure
+            backend architecture, here is my toolkit.
           </p>
         </motion.div>
 

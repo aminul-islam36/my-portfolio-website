@@ -37,7 +37,7 @@ const Hero = () => {
   return (
     <section
       id='home'
-      className='flex flex-col md:flex-row items-center justify-center min-h-[calc(100vh-80px)] mb-24 gap-12 md:gap-0'
+      className='py-20 flex flex-col md:flex-row items-center justify-center min-h-[calc(100vh-80px)] gap-12 md:gap-0'
     >
       {/* Text Content */}
       <motion.div
@@ -74,7 +74,9 @@ const Hero = () => {
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
             className='group relative inline-flex items-center justify-center px-12 py-5 font-body text-xl font-extrabold tracking-wide text-white transition-all duration-300 btn-gradient rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary shadow-[0_0_30px_rgba(168,85,247,0.5)] hover:shadow-[0_0_45px_rgba(168,85,247,0.7)]'
-            href='#'
+            href='https://drive.google.com/file/d/1YnPLdYig2IM1hXSvDM29QqpHRBe7nQ1s/view?usp=sharing'
+            target='_blank'
+            rel='noreferrer'
           >
             <span>Download Resume</span>
             <motion.i
