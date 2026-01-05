@@ -1,4 +1,4 @@
-# Meriem - Full Stack Developer Portfolio
+# AMIN - Full Stack Developer Portfolio
 
 A modern, responsive portfolio website built with **Vite + React.js**, **Tailwind CSS**, and **Framer Motion** animations.
 
@@ -26,23 +26,59 @@ A modern, responsive portfolio website built with **Vite + React.js**, **Tailwin
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/meriem-portfolio.git
-cd meriem-portfolio
+git clone https://github.com/yourusername/AMIN-portfolio.git
+cd AMIN-portfolio
 ```
 
-2. Install dependencies:
+2. **Install dependencies:**
 
 ```bash
 npm install
 ```
 
-3. Start the development server:
+3. **Install recommended VS Code extensions:**
+
+   - Open VS Code in the project directory
+   - VS Code will automatically suggest installing recommended extensions
+   - Or install manually:
+     - Tailwind CSS IntelliSense
+     - Prettier - Code formatter
+     - ESLint
+
+4. **Start the development server:**
 
 ```bash
 npm run dev
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+5. **Open your browser:**
+   - Navigate to `http://localhost:5173/` (or the port shown in terminal)
+
+## 🛠️ VS Code Setup for Tailwind IntelliSense
+
+This project is configured for optimal VS Code experience with Tailwind CSS:
+
+### ✅ **What's Included:**
+
+- **`.vscode/settings.json`** - Tailwind IntelliSense configuration
+- **`.vscode/extensions.json`** - Recommended extensions
+- **`jsconfig.json`** - JavaScript project configuration
+- **`tailwind.config.js`** - Tailwind configuration with proper content paths
+
+### 🎯 **Features You'll Get:**
+
+- **Autocomplete** - Tailwind class suggestions as you type
+- **Color previews** - See actual colors next to color classes
+- **Hover information** - CSS properties on hover
+- **Class validation** - Warnings for unknown classes
+- **Auto-formatting** - Prettier integration
+
+### 🔧 **If IntelliSense Isn't Working:**
+
+1. Install the **Tailwind CSS IntelliSense** extension
+2. Restart VS Code
+3. Ensure you're in a `.jsx` file
+4. Try `Ctrl+Shift+P` → "Developer: Reload Window"
 
 ## 🏗️ Build for Production
 
@@ -223,9 +259,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Contact
 
-Meriem - [hello@developer.com](mailto:hello@developer.com)
+AMIN - [aminbro318@gmail.com](mailto:aminbro318@gmail.com)
 
-Project Link: [https://github.com/yourusername/meriem-portfolio](https://github.com/yourusername/meriem-portfolio)
+Project Link: [https://github.com/yourusername/AMIN-portfolio](https://github.com/yourusername/AMIN-portfolio)
 
 ---
 

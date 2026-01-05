@@ -1,13 +1,13 @@
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useState } from 'react'
+import { motion } from 'framer-motion'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+  })
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -18,7 +18,7 @@ const Contact = () => {
         staggerChildren: 0.2,
       },
     },
-  };
+  }
 
   const itemVariants = {
     hidden: { y: 30, opacity: 0 },
@@ -29,72 +29,72 @@ const Contact = () => {
         duration: 0.8,
       },
     },
-  };
+  }
 
-  const handleInputChange = (e) => {
+  const handleInputChange = e => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
-    });
-  };
+    })
+  }
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = e => {
+    e.preventDefault()
     // Handle form submission here
-    console.log("Form submitted:", formData);
-  };
+    console.log('Form submitted:', formData)
+  }
 
   const contactInfo = [
     {
-      icon: "fas fa-envelope",
-      title: "Email",
-      value: "hello@developer.com",
-      href: "mailto:hello@developer.com",
+      icon: 'fas fa-envelope',
+      title: 'Email',
+      value: 'aminbro318@gmail.com',
+      href: 'mailto:aminbro318@gmail.com',
     },
     {
-      icon: "fas fa-phone",
-      title: "Phone",
-      value: "+1 (555) 123-4567",
-      href: "tel:+15550000000",
+      icon: 'fas fa-phone',
+      title: 'Phone',
+      value: '+8801912874218',
+      href: 'tel:+15550000000',
     },
     {
-      icon: "fas fa-map-marker-alt",
-      title: "Location",
-      value: "Morocco",
+      icon: 'fas fa-map-marker-alt',
+      title: 'Location',
+      value: 'mymensingh ,Bangladesh',
       href: null,
     },
-  ];
+  ]
 
   return (
-    <section id="contact" className="mb-24 scroll-mt-20">
+    <section id='contact' className='mb-24 scroll-mt-20'>
       {/* Background Elements */}
-      <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] pointer-events-none mix-blend-screen opacity-50 dark:opacity-30"></div>
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[100px] pointer-events-none mix-blend-screen opacity-50 dark:opacity-30"></div>
+      <div className='absolute top-0 left-1/4 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] pointer-events-none mix-blend-screen opacity-50 dark:opacity-30'></div>
+      <div className='absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[100px] pointer-events-none mix-blend-screen opacity-50 dark:opacity-30'></div>
 
       <motion.div
         variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
+        initial='hidden'
+        whileInView='visible'
         viewport={{ once: true, amount: 0.3 }}
-        className="relative max-w-7xl mx-auto w-full z-10"
+        className='relative max-w-7xl mx-auto w-full z-10'
       >
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <div className='grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start'>
           {/* Contact Info */}
           <motion.div
             variants={itemVariants}
-            className="lg:col-span-5 flex flex-col gap-10 pt-4"
+            className='lg:col-span-5 flex flex-col gap-10 pt-4'
           >
-            <div className="space-y-4">
-              <div className="inline-flex items-center px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider">
+            <div className='space-y-4'>
+              <div className='inline-flex items-center px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider'>
                 Contact Me
               </div>
-              <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight text-slate-900 dark:text-white">
-                Get in{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-400">
+              <h2 className='text-4xl md:text-5xl font-extrabold tracking-tight leading-tight text-slate-900 dark:text-white'>
+                Get in{' '}
+                <span className='text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-400'>
                   Touch
                 </span>
               </h2>
-              <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+              <p className='text-lg text-slate-600 dark:text-slate-400 leading-relaxed'>
                 I&apos;m currently open to new opportunities. Whether you have a
                 question about my stack, a project proposal, or just want to say
                 hi, I&apos;ll try my best to get back to you!
@@ -102,34 +102,34 @@ const Contact = () => {
             </div>
 
             {/* Contact Information */}
-            <div className="flex flex-col gap-8">
-              {contactInfo.map((info, index) => (
+            <div className='flex flex-col gap-8'>
+              {contactInfo.map(info => (
                 <motion.div
                   key={info.title}
                   variants={itemVariants}
                   whileHover={{ x: 8 }}
-                  className="group flex items-start gap-4 transition-all duration-300"
+                  className='flex items-start gap-4 transition-all duration-300'
                 >
                   <motion.div
-                    whileHover={{ scale: 1.1, backgroundColor: "#A855F7" }}
-                    className="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-xl bg-white dark:bg-[#211c27] border border-slate-200 dark:border-[#473b54] text-primary group-hover:text-white transition-all duration-300 shadow-sm"
+                    whileHover={{ scale: 1.1, backgroundColor: '#A855F7' }}
+                    className='flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-xl bg-white dark:bg-[#211c27] border border-slate-200 dark:border-[#473b54] text-primary hover:bg-primary hover:text-white transition-all duration-300 shadow-sm'
                   >
                     <i className={info.icon}></i>
                   </motion.div>
                   <div>
-                    <h3 className="text-base font-bold text-slate-900 dark:text-white mb-1">
+                    <h3 className='text-base font-bold text-slate-900 dark:text-white mb-1'>
                       {info.title}
                     </h3>
                     {info.href ? (
                       <motion.a
-                        whileHover={{ color: "#A855F7" }}
-                        className="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors text-lg"
+                        whileHover={{ color: '#A855F7' }}
+                        className='text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors text-lg'
                         href={info.href}
                       >
                         {info.value}
                       </motion.a>
                     ) : (
-                      <p className="text-slate-600 dark:text-slate-400 text-lg">
+                      <p className='text-slate-600 dark:text-slate-400 text-lg'>
                         {info.value}
                       </p>
                     )}
@@ -142,41 +142,41 @@ const Contact = () => {
           {/* Contact Form */}
           <motion.div
             variants={itemVariants}
-            className="lg:col-span-7 mt-8 lg:mt-0"
+            className='lg:col-span-7 mt-8 lg:mt-0'
           >
-            <div className="relative group rounded-2xl">
+            <div className='relative group rounded-2xl'>
               {/* Animated Border */}
               <motion.div
                 animate={{
                   background: [
-                    "linear-gradient(0deg, #A855F7, #9333EA, #3B82F6)",
-                    "linear-gradient(120deg, #A855F7, #9333EA, #3B82F6)",
-                    "linear-gradient(240deg, #A855F7, #9333EA, #3B82F6)",
-                    "linear-gradient(360deg, #A855F7, #9333EA, #3B82F6)",
+                    'linear-gradient(0deg, #A855F7, #9333EA, #3B82F6)',
+                    'linear-gradient(120deg, #A855F7, #9333EA, #3B82F6)',
+                    'linear-gradient(240deg, #A855F7, #9333EA, #3B82F6)',
+                    'linear-gradient(360deg, #A855F7, #9333EA, #3B82F6)',
                   ],
                 }}
                 transition={{ duration: 4, repeat: Infinity }}
-                className="absolute -inset-1 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500"
+                className='absolute -inset-1 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500'
               ></motion.div>
 
-              <div className="relative rounded-2xl bg-white dark:bg-[#1f162b] border border-slate-200 dark:border-[#382e42] p-6 sm:p-10 shadow-2xl">
-                <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+              <div className='relative rounded-2xl bg-white dark:bg-[#1f162b] border border-slate-200 dark:border-[#382e42] p-6 sm:p-10 shadow-2xl'>
+                <form onSubmit={handleSubmit} className='flex flex-col gap-6'>
                   {/* Name and Email Row */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
                     <motion.label
                       variants={itemVariants}
-                      className="flex flex-col gap-2"
+                      className='flex flex-col gap-2'
                     >
-                      <span className="text-sm font-semibold text-slate-700 dark:text-slate-300 ml-1">
+                      <span className='text-sm font-semibold text-slate-700 dark:text-slate-300 ml-1'>
                         Name
                       </span>
                       <motion.input
                         whileFocus={{ scale: 1.02 }}
-                        className="w-full rounded-lg bg-slate-50 dark:bg-[#150f1d] border-slate-200 dark:border-[#473b54] text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-[#ab9db9] h-14 px-4 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-200"
-                        placeholder="Your Name"
+                        className='w-full rounded-lg bg-slate-50 dark:bg-[#150f1d] border-slate-200 dark:border-[#473b54] text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-[#ab9db9] h-14 px-4 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-200'
+                        placeholder='Your Name'
                         required
-                        type="text"
-                        name="name"
+                        type='text'
+                        name='name'
                         value={formData.name}
                         onChange={handleInputChange}
                       />
@@ -184,18 +184,18 @@ const Contact = () => {
 
                     <motion.label
                       variants={itemVariants}
-                      className="flex flex-col gap-2"
+                      className='flex flex-col gap-2'
                     >
-                      <span className="text-sm font-semibold text-slate-700 dark:text-slate-300 ml-1">
+                      <span className='text-sm font-semibold text-slate-700 dark:text-slate-300 ml-1'>
                         Email
                       </span>
                       <motion.input
                         whileFocus={{ scale: 1.02 }}
-                        className="w-full rounded-lg bg-slate-50 dark:bg-[#150f1d] border-slate-200 dark:border-[#473b54] text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-[#ab9db9] h-14 px-4 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-200"
-                        placeholder="your@email.com"
+                        className='w-full rounded-lg bg-slate-50 dark:bg-[#150f1d] border-slate-200 dark:border-[#473b54] text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-[#ab9db9] h-14 px-4 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-200'
+                        placeholder='your@email.com'
                         required
-                        type="email"
-                        name="email"
+                        type='email'
+                        name='email'
                         value={formData.email}
                         onChange={handleInputChange}
                       />
@@ -205,17 +205,17 @@ const Contact = () => {
                   {/* Subject */}
                   <motion.label
                     variants={itemVariants}
-                    className="flex flex-col gap-2"
+                    className='flex flex-col gap-2'
                   >
-                    <span className="text-sm font-semibold text-slate-700 dark:text-slate-300 ml-1">
+                    <span className='text-sm font-semibold text-slate-700 dark:text-slate-300 ml-1'>
                       Subject
                     </span>
                     <motion.input
                       whileFocus={{ scale: 1.02 }}
-                      className="w-full rounded-lg bg-slate-50 dark:bg-[#150f1d] border-slate-200 dark:border-[#473b54] text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-[#ab9db9] h-14 px-4 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-200"
-                      placeholder="Project Opportunity"
-                      type="text"
-                      name="subject"
+                      className='w-full rounded-lg bg-slate-50 dark:bg-[#150f1d] border-slate-200 dark:border-[#473b54] text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-[#ab9db9] h-14 px-4 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-200'
+                      placeholder='Project Opportunity'
+                      type='text'
+                      name='subject'
                       value={formData.subject}
                       onChange={handleInputChange}
                     />
@@ -224,34 +224,34 @@ const Contact = () => {
                   {/* Message */}
                   <motion.label
                     variants={itemVariants}
-                    className="flex flex-col gap-2"
+                    className='flex flex-col gap-2'
                   >
-                    <span className="text-sm font-semibold text-slate-700 dark:text-slate-300 ml-1">
+                    <span className='text-sm font-semibold text-slate-700 dark:text-slate-300 ml-1'>
                       Message
                     </span>
                     <motion.textarea
                       whileFocus={{ scale: 1.02 }}
-                      className="w-full rounded-lg bg-slate-50 dark:bg-[#150f1d] border-slate-200 dark:border-[#473b54] text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-[#ab9db9] p-4 min-h-[180px] focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-200 resize-none"
-                      placeholder="Tell me about your project or inquiry..."
+                      className='w-full rounded-lg bg-slate-50 dark:bg-[#150f1d] border-slate-200 dark:border-[#473b54] text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-[#ab9db9] p-4 min-h-[180px] focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-200 resize-none'
+                      placeholder='Tell me about your project or inquiry...'
                       required
-                      name="message"
+                      name='message'
                       value={formData.message}
                       onChange={handleInputChange}
                     ></motion.textarea>
                   </motion.label>
 
                   {/* Submit Button */}
-                  <motion.div variants={itemVariants} className="pt-2">
+                  <motion.div variants={itemVariants} className='pt-2'>
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="relative w-full md:w-auto md:min-w-[200px] flex items-center justify-center gap-2 overflow-hidden rounded-lg bg-primary text-white font-bold h-14 px-8 shadow-lg shadow-primary/25 hover:bg-primary/90 hover:shadow-primary/40 focus:ring-4 focus:ring-primary/20 transition-all duration-200"
-                      type="submit"
+                      className='relative w-full md:w-auto md:min-w-[200px] flex items-center justify-center gap-2 overflow-hidden rounded-lg bg-primary text-white font-bold h-14 px-8 shadow-lg shadow-primary/25 hover:bg-primary/90 hover:shadow-primary/40 focus:ring-4 focus:ring-primary/20 transition-all duration-200'
+                      type='submit'
                     >
                       <span>Send Message</span>
                       <motion.i
                         whileHover={{ x: 5 }}
-                        className="fas fa-paper-plane"
+                        className='fas fa-paper-plane'
                       ></motion.i>
                     </motion.button>
                   </motion.div>
@@ -262,7 +262,7 @@ const Contact = () => {
         </div>
       </motion.div>
     </section>
-  );
-};
+  )
+}
 
-export default Contact;
+export default Contact

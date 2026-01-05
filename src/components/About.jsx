@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion'
 
 const About = () => {
   const containerVariants = {
@@ -10,7 +10,7 @@ const About = () => {
         staggerChildren: 0.2,
       },
     },
-  };
+  }
 
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
@@ -21,68 +21,68 @@ const About = () => {
         duration: 0.8,
       },
     },
-  };
+  }
 
   const stats = [
-    { number: "01+", label: "Years Experience", color: "text-primary" },
-    { number: "10+", label: "Projects Completed", color: "text-accent-pink" },
-    { number: "20+", label: "Happy Clients", color: "text-blue-500" },
-  ];
+    { number: '01+', label: 'Years Experience', color: 'text-primary' },
+    { number: '10+', label: 'Projects Completed', color: 'text-accent-pink' },
+    { number: '20+', label: 'Happy Clients', color: 'text-blue-500' },
+  ]
 
   return (
-    <section id="about" className="mb-24 scroll-mt-20">
+    <section id='about' className='mb-24 scroll-mt-20'>
       <motion.div
         variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
+        initial='hidden'
+        whileInView='visible'
         viewport={{ once: true, amount: 0.3 }}
-        className="max-w-7xl mx-auto w-full"
+        className='max-w-7xl mx-auto w-full'
       >
         {/* Section Header */}
         <motion.div
           variants={itemVariants}
-          className="text-center mb-16 relative"
+          className='text-center mb-16 relative'
         >
           <motion.h2
             variants={itemVariants}
-            className="text-4xl md:text-5xl font-display font-bold text-gray-900 dark:text-white mb-2"
+            className='text-4xl md:text-5xl font-display font-bold text-gray-900 dark:text-white mb-2'
           >
-            About{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent-pink">
+            About{' '}
+            <span className='text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent-pink'>
               Me
             </span>
           </motion.h2>
           <motion.div
             variants={itemVariants}
-            className="w-24 h-1 bg-gradient-to-r from-primary to-accent-pink mx-auto rounded-full"
+            className='w-24 h-1 bg-gradient-to-r from-primary to-accent-pink mx-auto rounded-full'
           ></motion.div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-32 bg-primary/20 rounded-full blur-[80px] -z-10"></div>
+          <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-32 bg-primary/20 rounded-full blur-[80px] -z-10'></div>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div className='grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center'>
           {/* Profile Image */}
           <motion.div
             variants={itemVariants}
-            className="lg:col-span-5 relative flex justify-center lg:justify-end order-1 lg:order-1"
+            className='lg:col-span-5 relative flex justify-center lg:justify-end order-1 lg:order-1'
           >
-            <div className="relative w-72 h-72 md:w-96 md:h-96">
+            <div className='relative w-72 h-72 md:w-96 md:h-96'>
               {/* Animated Border */}
               <motion.div
                 animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-0 rounded-full bg-gradient-to-tr from-primary via-accent-pink to-blue-500 opacity-70 blur-md"
+                transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+                className='absolute inset-0 rounded-full bg-gradient-to-tr from-primary via-accent-pink to-blue-500 opacity-70 blur-md'
               ></motion.div>
-              <div className="absolute inset-1 rounded-full bg-background-light dark:bg-background-dark z-10"></div>
+              <div className='absolute inset-1 rounded-full bg-background-light dark:bg-background-dark z-10'></div>
 
               {/* Main Image */}
               <motion.div
                 whileHover={{ scale: 1.05 }}
-                className="absolute inset-2 z-20 rounded-full overflow-hidden border-4 border-white/10 glow-effect"
+                className='absolute inset-2 z-20 rounded-full overflow-hidden border-4 border-white/10 glow-effect'
               >
                 <img
-                  alt="Meriem working on code"
-                  className="w-full h-full object-cover"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCn0fAiLddi_xgFmKjThYvcQB5Ime15WiEzH1rPJO4qir3WE0bWX9UYSdOtIvFbnIV2-LRNC19-KPbBPzDE0Sy4n5K5n5XsWctC2B4hiqIZ0XvsgdzdLg4SRnRBKC_8g1E7nnkml7vnLEVFZCx4_AFX9FvhooWIuJi3GrEuktG04HIYt1z9Jpr7FNRgQmFpwRQuRNJyNAR2_sx4Kn2QysQ3rwzVeSIbYeRZWkKN9J_vUJ8yonbQOjBsEknhc5Za1W0RQXElijqid_c"
+                  alt='AMIN working on code'
+                  className='w-full h-full object-cover'
+                  src='https://i.ibb.co.com/nN2dqRDx/unnamed.jpg'
                 />
               </motion.div>
 
@@ -90,17 +90,17 @@ const About = () => {
               <motion.div
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 3, repeat: Infinity }}
-                className="absolute -top-4 right-0 md:right-4 z-30 bg-card-dark border border-white/10 p-3 rounded-xl shadow-lg"
+                className='absolute -top-4 right-0 md:right-4 z-30 bg-card-dark border border-white/10 p-3 rounded-xl shadow-lg'
               >
-                <i className="fas fa-lightbulb text-yellow-400 text-3xl"></i>
+                <i className='fas fa-lightbulb text-yellow-400 text-3xl'></i>
               </motion.div>
 
               <motion.div
                 animate={{ y: [0, -8, 0] }}
                 transition={{ duration: 4, repeat: Infinity, delay: 1 }}
-                className="absolute bottom-4 left-0 md:left-4 z-30 bg-card-dark border border-white/10 p-3 rounded-xl shadow-lg"
+                className='absolute bottom-4 left-0 md:left-4 z-30 bg-card-dark border border-white/10 p-3 rounded-xl shadow-lg'
               >
-                <i className="fas fa-code text-blue-400 text-3xl"></i>
+                <i className='fas fa-code text-blue-400 text-3xl'></i>
               </motion.div>
             </div>
           </motion.div>
@@ -108,19 +108,19 @@ const About = () => {
           {/* Content */}
           <motion.div
             variants={itemVariants}
-            className="lg:col-span-7 order-2 lg:order-2 space-y-6"
+            className='lg:col-span-7 order-2 lg:order-2 space-y-6'
           >
             <motion.h3
               variants={itemVariants}
-              className="text-2xl md:text-3xl font-display font-semibold text-gray-800 dark:text-gray-100"
+              className='text-2xl md:text-3xl font-display font-semibold text-gray-800 dark:text-gray-100'
             >
-              I&apos;m a Full Stack Developer based in{" "}
-              <span className="text-primary">Morocco</span>
+              I&apos;m a Full Stack Developer based in{' '}
+              <span className='text-primary'>mymensingh ,Bangladesh</span>
             </motion.h3>
 
             <motion.div
               variants={itemVariants}
-              className="space-y-4 text-gray-600 dark:text-gray-300 leading-relaxed text-lg"
+              className='space-y-4 text-gray-600 dark:text-gray-300 leading-relaxed text-lg'
             >
               <p>
                 I'm a MERN stake web developer with hands-on experience building
@@ -137,20 +137,20 @@ const About = () => {
             {/* Stats */}
             <motion.div
               variants={itemVariants}
-              className="grid grid-cols-2 md:grid-cols-3 gap-4 pt-6"
+              className='grid grid-cols-2 md:grid-cols-3 gap-4 pt-6'
             >
-              {stats.map((stat, index) => (
+              {stats.map(stat => (
                 <motion.div
                   key={stat.label}
                   whileHover={{ scale: 1.05, y: -5 }}
-                  className="p-4 rounded-2xl bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 hover:border-primary/50 transition-colors group"
+                  className='p-4 rounded-2xl bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 hover:border-primary/50 transition-colors group'
                 >
                   <span
                     className={`block text-3xl font-bold ${stat.color} mb-1`}
                   >
                     {stat.number}
                   </span>
-                  <span className="text-sm text-gray-500 dark:text-gray-400 group-hover:text-gray-700 dark:group-hover:text-gray-200">
+                  <span className='text-sm text-gray-500 dark:text-gray-400 group-hover:text-gray-700 dark:group-hover:text-gray-200'>
                     {stat.label}
                   </span>
                 </motion.div>
@@ -160,35 +160,17 @@ const About = () => {
             {/* CTA Buttons */}
             <motion.div
               variants={itemVariants}
-              className="pt-6 flex flex-wrap gap-4"
+              className='pt-6 flex flex-wrap gap-4'
             >
               <motion.a
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center justify-center px-6 py-3 text-white font-medium bg-gradient-to-r from-primary to-accent-pink rounded-full hover:shadow-lg hover:shadow-primary/40 transition-all duration-300"
-                href="#"
+                className='inline-flex items-center justify-center px-6 py-3 text-white font-medium bg-gradient-to-r from-primary to-accent-pink rounded-full hover:shadow-lg hover:shadow-primary/40 transition-all duration-300'
+                href='#'
               >
                 <span>Download CV</span>
-                <i className="fas fa-download ml-2 text-sm"></i>
+                <i className='fas fa-download ml-2 text-sm'></i>
               </motion.a>
-
-              <div className="flex items-center gap-3">
-                {[
-                  { icon: "fab fa-github", href: "#" },
-                  { icon: "fab fa-linkedin-in", href: "#" },
-                  { icon: "fas fa-envelope", href: "#" },
-                ].map((social, index) => (
-                  <motion.a
-                    key={index}
-                    whileHover={{ scale: 1.1, y: -2 }}
-                    whileTap={{ scale: 0.9 }}
-                    className="w-11 h-11 flex items-center justify-center rounded-full bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary hover:border-primary dark:hover:border-primary transition-all"
-                    href={social.href}
-                  >
-                    <i className={social.icon}></i>
-                  </motion.a>
-                ))}
-              </div>
             </motion.div>
           </motion.div>
         </div>
@@ -196,16 +178,16 @@ const About = () => {
         {/* Technologies Section */}
         <motion.div
           variants={itemVariants}
-          className="mt-20 lg:mt-32 pt-10 border-t border-gray-200 dark:border-white/5"
+          className='mt-20 lg:mt-32 pt-10 border-t border-gray-200 dark:border-white/5'
         >
           <motion.div
             variants={containerVariants}
-            className="flex justify-center flex-wrap gap-8 md:gap-12 opacity-70 grayscale hover:grayscale-0 transition-all duration-500"
+            className='flex justify-center flex-wrap gap-8 md:gap-12 opacity-70 grayscale hover:grayscale-0 transition-all duration-500'
           ></motion.div>
         </motion.div>
       </motion.div>
     </section>
-  );
-};
+  )
+}
 
-export default About;
+export default About
