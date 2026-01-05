@@ -1,5 +1,3 @@
-import React from "react";
-import { Quote } from "lucide-react";
 import { motion } from "framer-motion";
 
 const Testimonials = () => {
@@ -7,108 +5,191 @@ const Testimonials = () => {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.1, delayChildren: 0.1 },
+      transition: {
+        delayChildren: 0.3,
+        staggerChildren: 0.2,
+      },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { y: 30, opacity: 0 },
     visible: {
-      opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
+      opacity: 1,
+      transition: {
+        duration: 0.8,
+      },
     },
   };
 
   const testimonials = [
     {
       quote:
-        "Meriem transformed our outdated platform into a sleek, high-performing web application. Her technical skills are top-notch.",
+        "Meriem transformed our outdated platform into a sleek, high-performing web application. Her technical skills are top-notch, but her design intuition is what truly sets her apart.",
       name: "Alex Lewis",
       position: "Product Manager, TechFlow",
       initials: "AL",
       gradient: "from-blue-500 to-cyan-500",
+      quoteColor: "text-primary/20 group-hover:text-primary/40",
     },
     {
       quote:
-        "Working with Meriem was an absolute pleasure. She delivered ahead of schedule and the code quality was impeccable.",
+        "Working with Meriem was an absolute pleasure. She delivered the project ahead of schedule and the code quality was impeccable. Highly recommended for any complex frontend work.",
       name: "Sarah Jenkins",
       position: "CTO, Innovate Inc",
       initials: "SJ",
       gradient: "from-secondary to-purple-600",
+      quoteColor: "text-secondary/20 group-hover:text-secondary/40",
     },
     {
       quote:
-        "The level of creativity and problem-solving Meriem brought to our e-commerce site was impressive.",
+        "The level of creativity and problem-solving Meriem brought to our e-commerce site was impressive. She didn't just write code; she improved the entire user experience.",
       name: "Michael Ross",
       position: "Founder, E-Shopify",
       initials: "MR",
       gradient: "from-orange-400 to-red-500",
+      quoteColor: "text-purple-500/20 group-hover:text-purple-500/40",
     },
   ];
 
   return (
-    <motion.section
-      variants={containerVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.3 }}
-      className="py-20"
-    >
-      <motion.div variants={containerVariants} className="text-center mb-16">
-        <motion.h2
-          variants={itemVariants}
-          className="text-4xl md:text-5xl font-bold mb-4"
-        >
-          <span className="text-gradient">What Clients Say</span>
-        </motion.h2>
-        <motion.p
-          variants={itemVariants}
-          className="opacity-70 max-w-2xl mx-auto text-lg"
-        >
-          Collaborating with passionate people to build exceptional digital
-          products.
-        </motion.p>
-      </motion.div>
-
+    <section id="testimonials" className="mb-24 scroll-mt-20">
       <motion.div
         variants={containerVariants}
-        className="grid grid-cols-1 md:grid-cols-3 gap-8"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
       >
-        {testimonials.map((testimonial, index) => (
-          <motion.div
-            key={index}
-            variants={itemVariants}
-            whileHover={{ scale: 1.02, y: -5 }}
-            className="card bg-base-200 shadow-xl"
-          >
-            <div className="card-body relative">
-              <Quote className="absolute top-4 right-4 text-3xl text-primary/40" />
+        {/* Section Header */}
+        <motion.div
+          variants={itemVariants}
+          className="text-center mb-16 space-y-4"
+        >
+          <h2 className="text-3xl md:text-5xl font-bold">
+            <span className="text-gradient">What Clients Say</span>
+          </h2>
+          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-lg">
+            Collaborating with passionate people to build exceptional digital
+            products.
+          </p>
+        </motion.div>
 
-              <p className="mb-6 leading-relaxed italic">
-                "{testimonial.quote}"
-              </p>
+        {/* Testimonials Grid */}
+        <motion.div
+          variants={containerVariants}
+          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+        >
+          {testimonials.map((testimonial, index) => (
+            <motion.div
+              key={testimonial.name}
+              variants={itemVariants}
+              whileHover={{
+                y: -10,
+                boxShadow: "0 20px 40px rgba(168, 85, 247, 0.1)",
+              }}
+              className="bg-surface-dark/50 backdrop-blur-sm border border-white/10 p-8 rounded-2xl relative group hover:border-primary/40 hover:bg-surface-dark transition-all duration-300"
+            >
+              {/* Quote Icon */}
+              <motion.i
+                whileHover={{ scale: 1.2, rotate: 15 }}
+                className={`fas fa-quote-left text-4xl ${testimonial.quoteColor} absolute top-8 right-8 transition-colors`}
+              ></motion.i>
 
-              <div className="flex items-center gap-4 mt-auto">
-                <div className="avatar placeholder">
-                  <div
-                    className={`bg-gradient-to-br ${testimonial.gradient} text-white rounded-full w-12 h-12 flex items-center justify-center font-bold`}
-                  >
-                    <span>{testimonial.initials}</span>
-                  </div>
-                </div>
+              {/* Quote Text */}
+              <motion.p
+                variants={itemVariants}
+                className="text-gray-300 mb-8 relative z-10 leading-relaxed"
+              >
+                &quot;{testimonial.quote}&quot;
+              </motion.p>
+
+              {/* Author Info */}
+              <motion.div
+                variants={itemVariants}
+                className="flex items-center gap-4"
+              >
+                {/* Avatar */}
+                <motion.div
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  className={`w-12 h-12 rounded-full bg-gradient-to-br ${testimonial.gradient} flex items-center justify-center text-white font-bold text-lg shadow-lg`}
+                >
+                  {testimonial.initials}
+                </motion.div>
+
+                {/* Name and Position */}
                 <div>
-                  <h4 className="font-bold hover:text-primary transition-colors">
+                  <motion.h4
+                    whileHover={{ color: "#A855F7" }}
+                    className="font-bold text-white transition-colors"
+                  >
                     {testimonial.name}
-                  </h4>
-                  <p className="text-sm opacity-70">{testimonial.position}</p>
+                  </motion.h4>
+                  <p className="text-sm text-gray-500">
+                    {testimonial.position}
+                  </p>
                 </div>
-              </div>
+              </motion.div>
+
+              {/* Hover Effect Background */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileHover={{ opacity: 0.1, scale: 1 }}
+                className="absolute inset-0 bg-gradient-to-br from-primary to-secondary rounded-2xl"
+              ></motion.div>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Additional Stats or CTA */}
+        <motion.div variants={itemVariants} className="mt-16 text-center">
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="inline-flex items-center gap-8 px-8 py-6 bg-surface-dark/30 backdrop-blur-sm border border-white/10 rounded-2xl"
+          >
+            <div className="text-center">
+              <motion.div
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                transition={{ type: "spring", stiffness: 100, delay: 0.2 }}
+                className="text-3xl font-bold text-primary mb-1"
+              >
+                98%
+              </motion.div>
+              <div className="text-sm text-gray-400">Client Satisfaction</div>
+            </div>
+
+            <div className="w-px h-12 bg-white/10"></div>
+
+            <div className="text-center">
+              <motion.div
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                transition={{ type: "spring", stiffness: 100, delay: 0.4 }}
+                className="text-3xl font-bold text-secondary mb-1"
+              >
+                50+
+              </motion.div>
+              <div className="text-sm text-gray-400">Projects Delivered</div>
+            </div>
+
+            <div className="w-px h-12 bg-white/10"></div>
+
+            <div className="text-center">
+              <motion.div
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                transition={{ type: "spring", stiffness: 100, delay: 0.6 }}
+                className="text-3xl font-bold text-blue-400 mb-1"
+              >
+                4+
+              </motion.div>
+              <div className="text-sm text-gray-400">Years Experience</div>
             </div>
           </motion.div>
-        ))}
+        </motion.div>
       </motion.div>
-    </motion.section>
+    </section>
   );
 };
 
