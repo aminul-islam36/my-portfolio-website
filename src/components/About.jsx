@@ -65,23 +65,15 @@ const About = () => {
             variants={itemVariants}
             className='lg:col-span-5 relative flex justify-center lg:justify-end order-1 lg:order-1'
           >
-            <div className='relative w-72 h-72 md:w-96 md:h-96'>
-              {/* Animated Border */}
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-                className='absolute inset-0 rounded-full bg-gradient-to-tr from-primary via-accent-pink to-blue-500 opacity-70 blur-md'
-              ></motion.div>
-              <div className='absolute inset-1 rounded-full bg-background-light dark:bg-background-dark z-10'></div>
-
+            <div className='relative w-full h-full'>
               {/* Main Image */}
               <motion.div
                 whileHover={{ scale: 1.05 }}
-                className='absolute inset-2 z-20 rounded-full overflow-hidden border-4 border-white/10 glow-effect'
+                className='w-full h-full border-2 border-gray-300 rounded-md'
               >
                 <img
                   alt='AMIN working on code'
-                  className='w-full h-full object-cover'
+                  className='w-full h-full object-cover rounded-md'
                   src='https://i.ibb.co.com/nN2dqRDx/unnamed.jpg'
                 />
               </motion.div>
@@ -98,7 +90,7 @@ const About = () => {
               <motion.div
                 animate={{ y: [0, -8, 0] }}
                 transition={{ duration: 4, repeat: Infinity, delay: 1 }}
-                className='absolute bottom-4 left-0 md:left-4 z-30 bg-card-dark border border-white/10 p-3 rounded-xl shadow-lg'
+                className='absolute -bottom-8 left-0 md:left-4 z-30 bg-card-dark border border-white/10 p-3 rounded-xl shadow-lg'
               >
                 <i className='fas fa-code text-blue-400 text-3xl'></i>
               </motion.div>
@@ -108,7 +100,7 @@ const About = () => {
           {/* Content */}
           <motion.div
             variants={itemVariants}
-            className='lg:col-span-7 order-2 lg:order-2 space-y-6'
+            className='lg:col-span-7 order-2 lg:order-2'
           >
             <motion.h3
               variants={itemVariants}
@@ -122,10 +114,10 @@ const About = () => {
               className='space-y-4 text-gray-600 dark:text-gray-300 leading-relaxed text-lg'
             >
               <p>
-                I'm a MERN stake web developer with hands-on experience building
-                user-friendly web applications with react, next.js,mongodb,
-                Express, node.js. I focus on building clean and sustainable code
-                for growing your project.
+                I&apos;m a MERN stake web developer with hands-on experience
+                building user-friendly web applications with react,
+                next.js,mongodb, Express, node.js. I focus on building clean and
+                sustainable code for growing your project.
               </p>
               <p>
                 I enjoy solving real world problems and always trying to learn

@@ -262,19 +262,6 @@ const Projects = () => {
             </motion.div>
           ))}
         </motion.div>
-
-        {/* View More Projects Button */}
-        <motion.div variants={itemVariants} className='text-center mt-12'>
-          <motion.a
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.95 }}
-            className='inline-flex items-center justify-center px-8 py-4 text-white font-bold bg-gradient-to-r from-primary to-secondary rounded-full hover:shadow-lg hover:shadow-primary/40 transition-all duration-300'
-            href='#'
-          >
-            <span>View All Projects</span>
-            <i className='fas fa-arrow-right ml-2'></i>
-          </motion.a>
-        </motion.div>
       </motion.div>
 
       {/* Project Modal */}

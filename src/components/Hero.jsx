@@ -37,18 +37,18 @@ const Hero = () => {
   return (
     <section
       id='home'
-      className='py-20 flex flex-col md:flex-row items-center justify-center min-h-[calc(100vh-80px)] gap-12 md:gap-0'
+      className='py-10 flex flex-col md:flex-row items-center justify-center min-h-[70vh] gap-8 md:gap-0'
     >
       {/* Text Content */}
       <motion.div
         variants={containerVariants}
         initial='hidden'
         animate='visible'
-        className='w-full md:w-1/2 space-y-6 md:space-y-8 text-center md:text-left order-2 md:order-1'
+        className='w-full md:w-1/2 space-y-3 md:space-y-3 text-center md:text-left order-2 md:order-1'
       >
-        <motion.div variants={itemVariants} className='space-y-2'>
-          <h1 className='capitalize font-title text-4xl mb-4 lg:mb-6 md:text-7xl font-bold tracking-tight italic text-gray-900 dark:text-white'>
-            im aminul islam
+        <motion.div variants={itemVariants}>
+          <h1 className='capitalize font-title text-4xl mb-3 lg:mb-4 md:text-7xl font-bold tracking-tight italic text-gray-900 dark:text-white'>
+            I&apos;m aminul islam
           </h1>
           <motion.h2
             variants={itemVariants}
@@ -62,19 +62,19 @@ const Hero = () => {
           variants={itemVariants}
           className='font-body text-base md:text-lg text-gray-600 dark:text-gray-400 max-w-lg mx-auto md:mx-0 leading-relaxed'
         >
-          MERN Stack Developer | React.js & Next.js | Node.js | Building
-          Scalable beautiful Web Applications
+          Frontend Developer | React Developer | MERN Stack Learner | Building
+          Scalable Web Applications
         </motion.p>
 
         <motion.div
           variants={itemVariants}
-          className='flex flex-col sm:flex-row items-center gap-6 pt-6 justify-center md:justify-start'
+          className='flex flex-col sm:flex-row items-center gap-6 pt-4 justify-center md:justify-start'
         >
           <motion.a
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
             className='group relative inline-flex items-center justify-center px-12 py-5 font-body text-xl font-extrabold tracking-wide text-white transition-all duration-300 btn-gradient rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary shadow-[0_0_30px_rgba(168,85,247,0.5)] hover:shadow-[0_0_45px_rgba(168,85,247,0.7)]'
-            href='https://drive.google.com/file/d/1YnPLdYig2IM1hXSvDM29QqpHRBe7nQ1s/view?usp=sharing'
+            href='https://drive.google.com/file/d/1HvtSMWhOE_xqDQYLdySjYylsKyn-tqwn/view?usp=sharing'
             target='_blank'
             rel='noreferrer'
           >
