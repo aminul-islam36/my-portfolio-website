@@ -87,7 +87,7 @@ const Contact = () => {
         from_email: formData.email,
         subject: formData.subject || 'New Contact Form Message',
         message: formData.message,
-        to_email: 'aminbro318@gmail.com',
+        to_email: 'waminbroo@gmail.com',
         reply_to: formData.email,
       }
 
@@ -150,8 +150,8 @@ const Contact = () => {
     {
       icon: 'fas fa-envelope',
       title: 'Email',
-      value: 'aminbro318@gmail.com',
-      href: 'mailto:aminbro318@gmail.com',
+      value: 'waminbroo@gmail.com',
+      href: 'mailto:waminbroo@gmail.com',
     },
     {
       icon: 'fas fa-phone',

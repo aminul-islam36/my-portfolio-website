@@ -80,7 +80,7 @@ export const emailjsConfig = {
 1. Restart your development server: `npm run dev`
 2. Navigate to the contact section
 3. Fill out and submit the form
-4. Check your email (aminbro318@gmail.com) for the message
+4. Check your email (waminbroo@gmail.com) for the message
 
 ## Troubleshooting Common Issues:
 

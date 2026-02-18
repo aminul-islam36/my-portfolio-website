@@ -37,7 +37,6 @@ npm install
 ```
 
 3. **Install recommended VS Code extensions:**
-
    - Open VS Code in the project directory
    - VS Code will automatically suggest installing recommended extensions
    - Or install manually:
@@ -259,7 +258,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Contact
 
-AMIN - [aminbro318@gmail.com](mailto:aminbro318@gmail.com)
+AMIN - [waminbroo@gmail.com](mailto:waminbroo@gmail.com)
 
 Project Link: [https://github.com/yourusername/AMIN-portfolio](https://github.com/yourusername/AMIN-portfolio)
 

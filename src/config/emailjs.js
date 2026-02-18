@@ -30,7 +30,7 @@ export const isEmailJSConfigured = () => {
 // {{from_email}} - Sender's email
 // {{subject}} - Email subject
 // {{message}} - Email message
-// {{to_email}} - Your email (aminbro318@gmail.com)
+// {{to_email}} - Your email (waminbroo@gmail.com)
 
 // Sample EmailJS template:
 /*

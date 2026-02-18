@@ -40,44 +40,33 @@ const Projects = () => {
 
   const projects = [
     {
-      title: 'E-Commerce Dashboard',
-      image: 'https://i.ibb.co.com/C31VY735/Screenshot-20.png',
-      description:
-        'A comprehensive dashboard for managing online stores with real-time inventory tracking, sales analytics visualization, and order processing workflows. Built with modern technologies to provide seamless user experience and robust performance.',
-      icon: 'fas fa-shopping-cart',
-      category: 'Full Stack',
-      technologies: ['Next.js', 'Tailwind', 'firebase'],
-      gradient: 'from-blue-500 to-cyan-500',
-      liveUrl: '#',
-      githubUrl: '#',
-    },
-    {
       title: 'Global LinkHub',
-      image: 'https://i.ibb.co.com/8nDD7NWq/Screenshot-21.png',
+      image: 'https://i.ibb.co.com/4ZPyKCgJ/Screenshot-68.png',
       description:
         'A powerful link management platform that allows users to create, organize, and share collections of links. Features include custom link previews, analytics tracking, and collaborative sharing capabilities.',
       icon: 'fas fa-link',
       category: 'Full Stack',
       technologies: ['Next.js', 'mongodb', 'Tailwind', 'express'],
       gradient: 'from-green-500 to-teal-500',
-      liveUrl: '#',
-      githubUrl: '#',
+      liveUrl: 'https://global-link-hub.web.app/',
+      githubUrl: 'https://github.com/aminul-islam36/Global-Link-Hub_Client',
     },
     {
-      title: 'Asset Verce Dashboard',
-      image: 'https://i.ibb.co.com/9HtZ3dx7/Screenshot-23.png',
+      title: 'Asset Verce',
+      image: 'https://i.ibb.co.com/nNPSMHQz/Screenshot-67.png',
       description:
         'A sophisticated asset management system designed for tracking and managing digital assets. Includes features for asset categorization, performance monitoring, and detailed reporting with interactive charts.',
       icon: 'fas fa-chart-line',
       category: 'Full Stack',
       technologies: ['Next.js', 'mongodb', 'Tailwind', 'node.js'],
       gradient: 'from-purple-500 to-indigo-500',
-      liveUrl: '#',
-      githubUrl: '#',
+      liveUrl: 'https://hr-asset-verse.web.app/',
+      githubUrl: 'https://github.com/aminul-islam36/HR-Asset-Verse-Client',
     },
     {
       title: 'TaskFlow Pro',
-      image: 'https://i.ibb.co.com/q3jrf2Ft/Screenshot-22.png',
+      image:
+        'https://i.ibb.co.com/JWCdQjsL/969m-Yf-Crb-L0aqd-SQGHkftp-H6-VFc.avif',
       description:
         'A collaborative task management application enabling teams to organize projects with drag-and-drop Kanban boards, real-time updates, and team chat integration. Perfect for agile development teams.',
       icon: 'fas fa-tasks',
@@ -87,18 +76,7 @@ const Projects = () => {
       liveUrl: '#',
       githubUrl: '#',
     },
-    {
-      title: 'Synapse AI Writer',
-      image: 'https://i.ibb.co.com/G4NyG2QK/Screenshot-31.png',
-      description:
-        'An AI-powered content generation tool that helps marketers create blog posts, social media captions, and ad copy. Integrates with OpenAI API for intelligent text generation and content optimization.',
-      icon: 'fas fa-magic',
-      category: 'AI / ML',
-      technologies: ['React.js', 'Next.js', 'mongodb'],
-      gradient: 'from-purple-500 to-pink-500',
-      liveUrl: '#',
-      githubUrl: '#',
-    },
+
     {
       title: 'CoinWatch',
       description:
@@ -145,7 +123,7 @@ const Projects = () => {
         {/* Projects Grid */}
         <motion.div
           variants={containerVariants}
-          className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6'
+          className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6'
         >
           {projects.map(project => (
             <motion.div
@@ -157,7 +135,7 @@ const Projects = () => {
               className='group relative flex flex-col rounded-xl bg-surface-dark border border-surface-border overflow-hidden hover:border-primary/40 transition-all duration-300 shadow-lg hover:shadow-xl w-full min-h-[400px]'
             >
               {/* Project Image/Icon Area */}
-              <div className='relative h-40 sm:h-48 overflow-hidden bg-[#2a2430]'>
+              <div className='relative h-40 sm:h-48 overflow-hidden border-b-gray-400 border-b'>
                 {project.image ? (
                   <>
                     {/* Project Image */}
@@ -216,22 +194,6 @@ const Projects = () => {
                     : project.description}
                 </p>
 
-                {/* Technologies */}
-                <div className='flex flex-wrap gap-1.5 sm:gap-2 mb-4 sm:mb-5'>
-                  {project.technologies.map((tech, techIndex) => (
-                    <motion.span
-                      key={tech}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: techIndex * 0.1 }}
-                      whileHover={{ scale: 1.05 }}
-                      className='px-2 sm:px-2.5 py-0.5 sm:py-1 capitalize rounded-full bg-primary/10 text-primary text-xs font-medium border border-primary/20 hover:bg-primary/20 transition-colors'
-                    >
-                      {tech}
-                    </motion.span>
-                  ))}
-                </div>
-
                 {/* Action Buttons */}
                 <div className='flex items-center gap-2 sm:gap-3 mt-auto'>
                   <motion.button
@@ -241,22 +203,8 @@ const Projects = () => {
                     className='flex-1 flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg bg-primary hover:bg-primary/90 text-white text-xs sm:text-sm font-semibold transition-all shadow-lg shadow-primary/20 hover:shadow-primary/30'
                   >
                     <i className='fas fa-eye text-xs'></i>
-                    <span className='hidden xs:inline sm:inline'>
-                      Live Demo
-                    </span>
-                    <span className='xs:hidden sm:hidden'>Demo</span>
+                    <span>View details</span>
                   </motion.button>
-
-                  <motion.a
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className='flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg bg-surface-border/50 hover:bg-surface-border text-slate-300 hover:text-white text-xs sm:text-sm font-semibold transition-all border border-surface-border hover:border-primary/30'
-                    href='#'
-                  >
-                    <i className='fab fa-github text-xs'></i>
-                    <span className='hidden xs:inline sm:inline'>Code</span>
-                    <span className='xs:hidden sm:hidden'>Code</span>
-                  </motion.a>
                 </div>
               </div>
             </motion.div>

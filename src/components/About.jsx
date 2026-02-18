@@ -26,7 +26,7 @@ const About = () => {
   const stats = [
     { number: '01+', label: 'Years Experience', color: 'text-primary' },
     { number: '10+', label: 'Projects Completed', color: 'text-accent-pink' },
-    { number: '20+', label: 'Happy Clients', color: 'text-blue-500' },
+    { number: '15+', label: 'Happy Clients', color: 'text-blue-500' },
   ]
 
   return (
@@ -121,7 +121,7 @@ const About = () => {
               </p>
               <p>
                 I enjoy solving real world problems and always trying to learn
-                new technologies . I love to increase my skills every day
+                new technologies . I love to improve my skills every day
               </p>
             </motion.div>
 

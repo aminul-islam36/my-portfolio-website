@@ -94,7 +94,7 @@ const Footer = () => {
                 },
                 {
                   icon: 'fas fa-envelope',
-                  href: 'mailto:aminbro318@gmail.com',
+                  href: 'mailto:waminbroo@gmail.com',
                 },
               ].map((social, index) => (
                 <motion.a
