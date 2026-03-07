@@ -157,7 +157,7 @@ const Contact = () => {
       icon: 'fas fa-phone',
       title: 'Phone',
       value: '+8801912874218',
-      href: 'tel:+15550000000',
+      href: 'tel:+8801912874218',
     },
     {
       icon: 'fas fa-map-marker-alt',

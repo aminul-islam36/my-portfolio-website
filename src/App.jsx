@@ -9,7 +9,14 @@ import Projects from './components/Projects.jsx'
 import Testimonials from './components/Testimonials.jsx'
 import Contact from './components/Contact.jsx'
 import Footer from './components/Footer.jsx'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
+AOS.init({
+  once: true,
+  duration: 800,
+  easing: 'ease-out-cubic',
+})
 function App() {
   const { darkMode } = useTheme()
 
